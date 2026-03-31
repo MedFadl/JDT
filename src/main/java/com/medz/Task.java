@@ -5,6 +5,9 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Task {
+    static {
+
+    }
 
     public enum Priority {
         LOW, MEDIUM, HIGH
@@ -13,7 +16,7 @@ public class Task {
     private String name;
     private String description;
     private Priority priority;
-    private boolean isCompleted;
+    boolean isCompleted;
 
     private final LocalDateTime createdAt;
     private LocalDateTime dueDate;

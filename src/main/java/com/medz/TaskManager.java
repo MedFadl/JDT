@@ -1,19 +1,26 @@
 package com.medz;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class TaskManager {
 
     private final List<Task> tasks = new ArrayList<>();
+    private final CustomTray tray;
+    public TaskManager() throws AWTException {
+        this.tray = new CustomTray(0, 30, "0 tasks left.");
+    }
 
     public void addTask(Task task) {
         tasks.add(task);
+        syncTray();
     }
 
     public void removeTask(int index) {
-        if (!isValidIndex(index)) return;
+        if (isValidIndex(index)) return;
         tasks.remove(index);
+        syncTray();
     }
 
     public void listTasks() {
@@ -29,17 +36,18 @@ public class TaskManager {
     }
 
     public void markTaskCompleted(int index) {
-        if (!isValidIndex(index)) return;
+        if (isValidIndex(index)) return;
         tasks.get(index).markCompleted();
+        syncTray();
     }
 
     public Task getTask(int index) {
-        if (!isValidIndex(index)) return null;
+        if (isValidIndex(index)) return null;
         return tasks.get(index);
     }
 
     public boolean editTask(int index, String newName, String newDescription, String newPriority) {
-        if (!isValidIndex(index)) return false;
+        if (isValidIndex(index)) return false;
 
         Task task = tasks.get(index);
 
@@ -58,6 +66,15 @@ public class TaskManager {
     }
 
     private boolean isValidIndex(int index) {
-        return index >= 0 && index < tasks.size();
+        return index < 0 || index >= tasks.size();
+    }
+    private void syncTray() {
+        long activeCount = tasks.stream()
+                .filter(task -> !task.isCompleted)
+                .count();
+
+        int displayValue = (int) activeCount;
+        tray.update(displayValue);
+        tray.setTooltip(displayValue + " active tasks remaining.");
     }
 }

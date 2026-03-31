@@ -1,5 +1,6 @@
 package com.medz;
 
+import java.awt.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
@@ -10,6 +11,9 @@ public class TaskConsole {
     private final TaskManager manager = new TaskManager();
     private final DateTimeFormatter formatter =
             DateTimeFormatter.ofPattern("yyyy-M-d HH:mm");
+
+    public TaskConsole() throws AWTException {
+    }
 
     public void close() {
         scanner.close();

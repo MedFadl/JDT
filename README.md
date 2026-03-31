@@ -29,14 +29,15 @@ Creating mini-projects is **never a waste of time**, as you can reuse the logic 
 
 ## Features
 
-| Feature          | Description                                             |
-| ---------------- | ------------------------------------------------------- |
-| Add Task         | Name, description, priority (LOW/MEDIUM/HIGH), due date |
-| View Tasks       | See all tasks with status, due date, and time left      |
-| Edit Task        | Update task name, description, priority, or deadline    |
-| Complete Task    | Mark tasks as completed                                 |
-| Delete Task      | Remove tasks from the list                              |
-| Time Tracking    | Automatically calculates time left for each task        |
+| Feature       | Description                                             |
+|---------------|---------------------------------------------------------|
+| Add Task      | Name, description, priority (LOW/MEDIUM/HIGH), due date |
+| View Tasks    | See all tasks with status, due date, and time left      |
+| Edit Task     | Update task name, description, priority, or deadline    |
+| Complete Task | Mark tasks as completed                                 |
+| Delete Task   | Remove tasks from the list                              |
+| Time Tracking | Automatically calculates time left for each task        |
+| Tray Icon     | To count the uncompleted tasks.. why not?!              |
 
 ---
 
